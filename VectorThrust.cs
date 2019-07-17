@@ -158,6 +158,7 @@ public const bool ignoreHiddenBlocks = false;
 public double thrustModifierAbove = 0.1;// how close the rotor has to be to target position before the thruster gets to full power
 public double thrustModifierBelow = 0.1;// how close the rotor has to be to opposite of target position before the thruster gets to 0 power
 
+
 public const double thrustModifierAboveSpace = 0.01;
 public const double thrustModifierBelowSpace = 0.9;
 
@@ -500,6 +501,7 @@ public void Main(string argument, UpdateType runType) {
 		Vector3D req = g[0].requiredVec / g.Count;
 		for(int i = 0; i < g.Count; i++) {
 			g[i].requiredVec = req;
+			g[i].thrustModifierAbove = thrustModifierAbove;
 			g[i].thrustModifierBelow = thrustModifierBelow;
 			// Echo(g[i].errStr);
 			g[i].go(jetpack, dampeners, shipMass);
